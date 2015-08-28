@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-
+  
   root to: 'top#index'
+  devise_for :users
+  resources :users, :only => [:index, :show]
   resources :blogs
   get 'contacts/thanks', to: 'contacts#thanks'
   resources :contacts, :only => [:index, :create]
