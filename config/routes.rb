@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
+  root to: 'top#index'
   resources :blogs
+  get 'contacts/thanks', to: 'contacts#thanks'
+  resources :contacts, :only => [:index, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
