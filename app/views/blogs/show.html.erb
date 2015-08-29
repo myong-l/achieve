@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div class=content>
+  <p id="notice"><%= notice %></p>
+    <div class="panel panel-default">
+      <div class="panel-heading"><%= @blog.title %></div>
+        <div class="panel-body">
+          <p><%= @blog.content %></p>
+          <%= link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary dropdown-toggle' %>
+        </div>
+      </div>
+    <%= link_to 'Back', blogs_path, class: 'btn btn-default' %>
+</div>

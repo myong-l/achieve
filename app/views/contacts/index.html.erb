@@ -13,14 +13,26 @@
   <% end %>
   <%= form_for(@contact) do |f| %>
   <div class="explanation">
-    <p><%= f.label :title %></p>
-    <p><%= f.text_field :title %></p>
-    <p><%= f.label :content %></p>
-    <p><%= f.text_area :content %></p>
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email %></p>
-    <%= f.submit %>
+    <div class="field">
+      <p><%= f.label :title %></p>
+      <p><%= f.text_field :title %></p>
+    </div>
+    <div class="field">
+      <p><%= f.label :content %></p>
+      <p><%= f.text_area :content %></p>
+    </div>
+    <div class="field">
+      <p><%= f.label :tel %></p>
+      <p><%= f.text_field :tel %></p>
+    </div>
+    <div class="field">
+      <p><%= f.label :email %></p>
+      <p><%= f.email_field :email %></p>
+    </div>
+    <div class="field">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= link_to 'Back', root_path, class: "btn btn-default" %>
+    </div>
   <% end %>
-  <%= link_to 'Back', root_path %>
   </div>
 </div>
