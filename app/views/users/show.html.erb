@@ -1,6 +1,43 @@
 <div class="content">
   <ul class="mypage">
-    <li><h1><%= @user.email %></h1></li>
-    <li><%= link_to '設定変更', edit_user_registration_path, class: "btn" %></li>
+    <li><h1><%= @user.name %></h1></li>
+    <li><%= link_to '設定変更', edit_user_registration_path, class: "btn btn-primary" %></li>
   </ul>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">自己紹介</h3>
+    </div>
+    <div class="panel-body">
+      <p><%= @user.profile %></p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+  <div class="panel-heading"><%= @user.name %>タイムライン</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>作成日時</th>
+        <th>編集</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_blog.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.content %></td>
+        <td><%= blog.user.name %> | <%= blog.created_at.strftime('%Y/%m/%d') %></td>
+        <% if user_signed_in? %>
+          <% if blog.user_id == current_user.id %>
+            <th><%= link_to '編集', edit_blog_path(blog), class: 'btn btn-primary' %> <%= link_to '削除', blog_path(blog), method: 'delete', class: 'btn btn-danger' %></th>
+          <% else %>
+          <% end %>
+        <% else %>
+        <% end%>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 </div>
