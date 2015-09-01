@@ -1,24 +1,25 @@
 <div class="content">
   <h1>お問い合わせフォーム</h1>
   <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
-
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @contact.errors.count %>件のエラーがあります。</h3>
+      </div>
+      <div class="panel-body">
+        <% @contact.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </div>
     </div>
   <% end %>
   <%= form_for(@contact) do |f| %>
   <div class="explanation">
     <div class="field">
-      <p><%= f.label :title %></p>
-      <p><%= f.text_field :title %></p>
+      <p><i class="fa fa-pencil"></i><%= f.label :title %></p>
+      <p><%= f.text_field :title, placeholder: 'タイトル記入' %></p>
     </div>
     <div class="field">
-      <p><%= f.label :content %></p>
+      <p><i class="fa fa-commenting-o"></i><%= f.label :content %></p>
       <p><%= f.text_area :content %></p>
     </div>
     <div class="field">

@@ -34,8 +34,31 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-
+gem 'rambulance'
 group :development, :test do
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'database_rewinder'
+  gem 'factory_girl_rails'
+  gem 'hirb-unicode'
+  gem 'hirb'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'quiet_assets'
+  gem 'tapp'
+  gem 'timecop'
+  gem "annotate", github: "ctran/annotate_models"
+  gem "colorize_unpermitted_parameters"
+  gem "faker"
+  gem "guard-rspec", require: false
+  gem "rack-mini-profiler"
+  gem "rspec-rails", "~> 3.0.0.beta" 
+  gem "rspec", "~> 3.0.0.beta" 
+  gem "spring-commands-rspec" 
+  gem "xray-rails"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
